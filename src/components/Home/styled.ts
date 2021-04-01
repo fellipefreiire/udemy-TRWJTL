@@ -26,10 +26,19 @@ export const Button = styled.button<buttonProps>`
   cursor: pointer;
   color: white;
   font-size: 24px;
+
+  &:disabled {
+    background-color: grey;
+  }
 `
 
 export const Input = styled.input`
   margin: 30px 0;
   height: 30px;
   width: 30px;
+`
+
+export const Label = styled.label`
+  margin-top: -25px;
+  font-size: 20px;
 `

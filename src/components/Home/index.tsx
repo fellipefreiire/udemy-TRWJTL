@@ -3,6 +3,7 @@ import * as S from './styled'
 
 const Home: React.FC = () => {
   const [buttonColor, setButtonColor] = useState('red')
+  const [disabled, setDisabled] = useState(false)
   const newButtonColor = buttonColor === 'red' ? 'blue' : 'red'
 
   const handleClick = () => {
@@ -12,10 +13,20 @@ const Home: React.FC = () => {
   return (
     <S.Home>
       <S.Container>
-        <S.Button buttonColor={buttonColor} onClick={handleClick}>
+        <S.Button
+          buttonColor={buttonColor}
+          onClick={handleClick}
+          disabled={disabled}
+        >
           Change to {newButtonColor}
         </S.Button>
-        <S.Input type='checkbox' />
+        <S.Input
+          id='disable-button-checkbox'
+          type='checkbox'
+          aria-checked={disabled}
+          onClick={e => setDisabled(e.target.checked)}
+        />
+        <S.Label htmlFor='disable-button-checkbox'>Disable button</S.Label>
       </S.Container>
     </S.Home>
   )
