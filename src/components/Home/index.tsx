@@ -1,10 +1,23 @@
-import React from 'react'
+import { useState } from 'react'
 import * as S from './styled'
 
-const Home: React.FC = () => (
-  <S.Home>
-    <S.H1>Hello World</S.H1>
-  </S.Home>
-)
+const Home: React.FC = () => {
+  const [buttonColor, setButtonColor] = useState('red')
+  const newButtonColor = buttonColor === 'red' ? 'blue' : 'red'
+
+  const handleClick = () => {
+    setButtonColor(newButtonColor)
+  }
+
+  return (
+    <S.Home>
+      <S.Container>
+        <S.Button buttonColor={buttonColor} onClick={handleClick}>
+          Change to {newButtonColor}
+        </S.Button>
+      </S.Container>
+    </S.Home>
+  )
+}
 
 export default Home
