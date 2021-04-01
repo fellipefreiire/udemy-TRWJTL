@@ -28,7 +28,7 @@ export const Button = styled.button<buttonProps>`
   font-size: 24px;
 
   &:disabled {
-    background-color: grey;
+    background-color: gray;
   }
 `
 
