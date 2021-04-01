@@ -13,6 +13,7 @@ export const Container = styled.div`
   height: 100vh;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 `
 
 export const Button = styled.button<buttonProps>`
@@ -25,4 +26,10 @@ export const Button = styled.button<buttonProps>`
   cursor: pointer;
   color: white;
   font-size: 24px;
+`
+
+export const Input = styled.input`
+  margin: 30px 0;
+  height: 30px;
+  width: 30px;
 `

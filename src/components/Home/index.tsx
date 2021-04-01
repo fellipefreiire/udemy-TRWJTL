@@ -15,6 +15,7 @@ const Home: React.FC = () => {
         <S.Button buttonColor={buttonColor} onClick={handleClick}>
           Change to {newButtonColor}
         </S.Button>
+        <S.Input type='checkbox' />
       </S.Container>
     </S.Home>
   )
