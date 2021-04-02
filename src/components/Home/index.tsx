@@ -6,9 +6,10 @@ export const replaceCamelWithSpaces = (colorName: string): string => {
 }
 
 const Home: React.FC = () => {
-  const [buttonColor, setButtonColor] = useState('red')
+  const [buttonColor, setButtonColor] = useState('MediumVioletRed')
   const [disabled, setDisabled] = useState(false)
-  const newButtonColor = buttonColor === 'red' ? 'blue' : 'red'
+  const newButtonColor =
+    buttonColor === 'MediumVioletRed' ? 'MidnightBlue' : 'MediumVioletRed'
 
   const handleClick = () => {
     setButtonColor(newButtonColor)
@@ -28,7 +29,9 @@ const Home: React.FC = () => {
           id='disable-button-checkbox'
           type='checkbox'
           aria-checked={disabled}
-          onClick={e => setDisabled(e.target.checked)}
+          onClick={(e: {
+            target: { checked: boolean | ((prevState: boolean) => boolean) }
+          }) => setDisabled(e.target.checked)}
         />
         <S.Label htmlFor='disable-button-checkbox'>Disable button</S.Label>
       </S.Container>
