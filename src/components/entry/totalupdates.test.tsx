@@ -2,9 +2,10 @@ import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import Options from './Options'
 import OrderEntry from './OrderEntry'
+import { OrderDetailsProvider } from '../context/OrderDetails'
 
 test('update scoop subtotal when scoops change', async () => {
-  render(<Options optionType='scoops' />)
+  render(<Options optionType='scoops' />, { wrapper: OrderDetailsProvider })
 
   // make sure total starts out $0.00
   const scoopsSubtotal = screen.getByText('Scoops total: $', { exact: false })
@@ -29,7 +30,7 @@ test('update scoop subtotal when scoops change', async () => {
 
 test('update toppings subtotal when toppings change', async () => {
   // render parent component
-  render(<Options optionType='toppings' />)
+  render(<Options optionType='toppings' />, { wrapper: OrderDetailsProvider })
 
   const toppingsTotal = screen.getByText('Toppings total: $', { exact: false })
   expect(toppingsTotal).toHaveTextContent('0.00')
@@ -55,7 +56,9 @@ test('update toppings subtotal when toppings change', async () => {
 
 describe('grand total', () => {
   test('grand total updates properly if scoop is added first', async () => {
-    render(<OrderEntry setOrderPhase={jest.fn()} />)
+    render(<OrderEntry setOrderPhase={jest.fn()} />, {
+      wrapper: OrderDetailsProvider
+    })
     const grandTotal = screen.getByRole('heading', {
       name: /grand total: \$/i
     })
@@ -80,7 +83,9 @@ describe('grand total', () => {
   })
 
   test('grand total updates properly if topping is added first', async () => {
-    render(<OrderEntry setOrderPhase={jest.fn()} />)
+    render(<OrderEntry setOrderPhase={jest.fn()} />, {
+      wrapper: OrderDetailsProvider
+    })
 
     // add cherries and check grand total
 
@@ -101,7 +106,9 @@ describe('grand total', () => {
     expect(grandTotal).toHaveTextContent('5.50')
   })
   test('grand total updates properly if item is removed', async () => {
-    render(<OrderEntry setOrderPhase={jest.fn()} />)
+    render(<OrderEntry setOrderPhase={jest.fn()} />, {
+      wrapper: OrderDetailsProvider
+    })
 
     // add cherries
     const cherriesCheckbox = await screen.findByRole('checkbox', {
