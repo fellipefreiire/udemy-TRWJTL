@@ -1,5 +1,4 @@
 import * as S from './styled'
-import Button from 'react-bootstrap/Button'
 import Options from '../Options'
 import { useOrderDetails } from '../../context/OrderDetails'
 
@@ -19,9 +18,12 @@ const OrderEntry: React.FC<PropsTypes> = ({ setOrderPhase }): JSX.Element => {
       <Options optionType='scoops' />
       <Options optionType='toppings' />
       <h2>Grand total: {orderDetails.totals.grandTotal}</h2>
-      <Button disabled={orderDisabled} onClick={() => setOrderPhase('review')}>
+      <S.NewButton
+        disabled={orderDisabled}
+        onClick={() => setOrderPhase('review')}
+      >
         Order Sundae!
-      </Button>
+      </S.NewButton>
     </S.Container>
   )
 }

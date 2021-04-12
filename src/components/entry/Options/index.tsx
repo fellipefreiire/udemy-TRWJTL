@@ -51,14 +51,14 @@ const Options: React.FC<PropsTypes> = ({ optionType }): JSX.Element => {
   )
 
   return (
-    <>
+    <S.Container>
       <h2>{title}</h2>
       <p>{formatCurrency(pricePerItem[optionType])} each</p>
       <p>
         {title} total: {orderDetails.totals[optionType]}
       </p>
-      <Row>{optionItems}</Row>
-    </>
+      <S.NewRow>{optionItems}</S.NewRow>
+    </S.Container>
   )
 }
 

@@ -21,7 +21,7 @@ const ScoopOption: React.FC<PropsTypes> = ({
   return (
     <Col xs={12} sm={6} md={4} lg={3} style={{ textAlign: 'center' }}>
       <img
-        style={{ width: '15%' }}
+        style={{ width: '75%' }}
         src={`http://localhost:3030/${imagePath}`}
         alt={`${name} scoop`}
       />
@@ -30,10 +30,10 @@ const ScoopOption: React.FC<PropsTypes> = ({
         as={Row}
         style={{ marginTop: '10px' }}
       >
-        <Form.Label column xs='6' style={{ textAlign: 'right' }}>
+        <Form.Label column xs='6' style={{ textAlign: 'center' }}>
           {name}
         </Form.Label>
-        <Col xs='5' style={{ textAlign: 'left' }}>
+        <Col xs='5' style={{ textAlign: 'center' }}>
           <Form.Control
             type='number'
             defaultValue={0}
