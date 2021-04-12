@@ -29,7 +29,7 @@ const OrderConfirmation: React.FC<PropsTypes> = ({
   }, [])
 
   if (error) {
-    return <AlertBanner />
+    return <AlertBanner message={null} variant={null} />
   }
 
   function handleClick() {

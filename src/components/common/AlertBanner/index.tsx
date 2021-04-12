@@ -11,7 +11,7 @@ const AlertBanner: React.FC<PropsTypes> = ({
   variant
 }): JSX.Element => {
   const alertMessage =
-    message || 'An unexpected error ocurred. Please try again later.'
+    message || 'An unexpected error occurred. Please try again later.'
   const alertVariant = variant || 'danger'
 
   return (
