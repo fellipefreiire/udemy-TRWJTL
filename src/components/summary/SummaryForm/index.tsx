@@ -6,8 +6,20 @@ import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
 
 import * as S from './styled'
 
-const SummaryForm: React.FC = (): JSX.Element => {
+interface PropsTypes {
+  setOrderPhase: any
+}
+
+const SummaryForm: React.FC<PropsTypes> = ({ setOrderPhase }): JSX.Element => {
   const [tcChecked, setTcChecked] = useState(false)
+
+  function handleSubmit(event) {
+    event.preventDefault()
+
+    // pass along to the next phase.
+    // The next page will handle submitting order from context.
+    setOrderPhase('completed')
+  }
 
   const popover = (
     <Popover id='popover-basic'>
@@ -25,7 +37,7 @@ const SummaryForm: React.FC = (): JSX.Element => {
   )
 
   return (
-    <Form>
+    <Form onSubmit={handleSubmit}>
       <Form.Group controlId='terms-and-conditions'>
         <Form.Check
           type='checkbox'

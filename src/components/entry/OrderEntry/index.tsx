@@ -4,7 +4,7 @@ import Options from '../Options'
 import { useOrderDetails } from '../../context/OrderDetails'
 
 interface PropsTypes {
-  setOrderPhase?: (value: string | ((prevVar: string) => string)) => void
+  setOrderPhase: any
 }
 
 const OrderEntry: React.FC<PropsTypes> = ({ setOrderPhase }): JSX.Element => {

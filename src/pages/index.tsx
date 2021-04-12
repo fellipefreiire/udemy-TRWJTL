@@ -4,6 +4,7 @@ import Container from 'react-bootstrap/Container'
 
 import OrderEntry from '../components/entry/OrderEntry'
 import OrderSummary from '../components/summary/OrderSummary'
+import OrderConfirmation from '../components/confirmation/OrderConfirmation'
 
 import { OrderDetailsProvider } from '../components/context/OrderDetails'
 
@@ -16,11 +17,11 @@ const Homepage: React.FC = () => {
       Component = OrderEntry
       break
     case 'review':
-      Component: OrderSummary
+      Component = OrderSummary
       break
-    // case 'completed':
-    //   Component: OrderConfirmation
-    //   break
+    case 'completed':
+      Component = OrderConfirmation
+      break
     default:
   }
 
@@ -31,9 +32,9 @@ const Homepage: React.FC = () => {
         <link rel='icon' href='/favicon.ico' />
       </Head>
 
-      {/* <OrderDetailsProvider> */}
-      <Container>{<Component setOrderPhase={setOrderPhase} />}</Container>
-      {/* </OrderDetailsProvider> */}
+      <OrderDetailsProvider>
+        <Container>{<Component setOrderPhase={setOrderPhase} />}</Container>
+      </OrderDetailsProvider>
     </div>
   )
 }
