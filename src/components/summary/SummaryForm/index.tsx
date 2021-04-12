@@ -30,7 +30,11 @@ const SummaryForm: React.FC<PropsTypes> = ({ setOrderPhase }): JSX.Element => {
   const checkboxLabel = (
     <span>
       I agree to
-      <OverlayTrigger trigger='hover' placement='right' overlay={popover}>
+      <OverlayTrigger
+        trigger={['hover', 'focus']}
+        placement='right'
+        overlay={popover}
+      >
         <S.SpanBlue> Terms and Conditions</S.SpanBlue>
       </OverlayTrigger>
     </span>
