@@ -4,10 +4,11 @@ import Options from '../Options'
 import { useOrderDetails } from '../../context/OrderDetails'
 
 interface PropsTypes {
-  setOrderPhase: (value: string | ((prevVar: string) => string)) => void
+  setOrderPhase?: (value: string | ((prevVar: string) => string)) => void
 }
 
 const OrderEntry: React.FC<PropsTypes> = ({ setOrderPhase }): JSX.Element => {
+  //@ts-ignore
   const [orderDetails] = useOrderDetails()
 
   const orderDisabled = orderDetails.totals.scoops === '$0.00'

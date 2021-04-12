@@ -7,7 +7,7 @@ import ToppingOption from '../ToppingOption'
 import AlertBanner from '../../common/AlertBanner'
 import { pricePerItem } from '../../../constants'
 import { useOrderDetails } from '../../context/OrderDetails'
-// import { formatCurrency } from '../../../constants/'
+import { formatCurrency } from '../../../utilities'
 
 interface PropsTypes {
   optionType: string
@@ -43,7 +43,6 @@ const Options: React.FC<PropsTypes> = ({ optionType }): JSX.Element => {
         key={item.name}
         name={item.name}
         imagePath={item.imagePath}
-        //@ts-ignore
         updateItemCount={(itemName, newItemCount) =>
           updateItemCount(itemName, newItemCount, optionType)
         }
@@ -54,7 +53,7 @@ const Options: React.FC<PropsTypes> = ({ optionType }): JSX.Element => {
   return (
     <>
       <h2>{title}</h2>
-      <p>{pricePerItem[optionType]} each</p>
+      <p>{formatCurrency(pricePerItem[optionType])} each</p>
       <p>
         {title} total: {orderDetails.totals[optionType]}
       </p>

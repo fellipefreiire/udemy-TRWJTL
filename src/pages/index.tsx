@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import Home from '../components/Home'
 import { useState } from 'react'
 import Container from 'react-bootstrap/Container'
 
@@ -32,9 +31,9 @@ const Homepage: React.FC = () => {
         <link rel='icon' href='/favicon.ico' />
       </Head>
 
-      <OrderDetailsProvider>
-        <Container>{<Component setOrderPhase={setOrderPhase} />}</Container>
-      </OrderDetailsProvider>
+      {/* <OrderDetailsProvider> */}
+      <Container>{<Component setOrderPhase={setOrderPhase} />}</Container>
+      {/* </OrderDetailsProvider> */}
     </div>
   )
 }
